@@ -18,6 +18,7 @@
                 <li class="text-white font-medium text-base p-2"><a href="#">Report by category</a></li>
             </ul>
         </div>
+        <!-- sidebar end -->
         <div class="main__content w-[80%]">
             <header class="bg-gray-300 px-5 py-5 flex justify-items-end">
                 <div class="user flex items-center">
@@ -29,6 +30,7 @@
                     </div>
                 </div>
             </header>
+
             <div class="add_form">
                 <div class="button_wrapper flex justify-center gap-10 py-8 max-w-[700px] mx-auto">
                     <button onclick="toggleForm('income_form')" class="text-white text-base font-medium px-8 h-[60px] bg-[#86c540]">Add Income</button>
@@ -77,6 +79,7 @@
                                 <option value="" disabled selected>Select a category</option>
                                 <option value="petrol">Petrol</option>
                                 <option value="grocery">Grocery</option>
+                                <option value="grocery">Guests Expenses</option>
                             </select>
                         </div>
                         <div class="mb-4">
@@ -97,10 +100,53 @@
                 </div>
 
             </div>
+            <!-- Table Showing Last ten records -->
+            
+            <?php
+
+                include_once("db_connection.php");
+            
+                $sql = "SELECT * FROM `expenses` ";
+
+                $result = mysqli_query( $conn, $sql ) or die( "Query has error" );
+
+                $records = mysqli_fetch_assoc($result);
+                
+                print_r($records);
+
+            ?>
+
+            <div class="main_records_wrapper flex">
+                <div class="amount_output">
+                    <span>20000</span>
+                    <span>-</span>
+                    <span>Balance : 3400</span>
+                </div>
+                <div class="latest_records">
+                <table class="min-w-full">
+                    <thead>
+                        <tr class="bg-gray-300">
+                            <th class="py-2 px-4">id</th>
+                            <th class="py-2 px-4">Name</th>
+                            <th class="py-2 px-4">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-300">
+
+                        <tr>
+                            <td class="py-2 px-4"></td>
+                            <td class="py-2 px-4"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
-    
     
     <script>
 
