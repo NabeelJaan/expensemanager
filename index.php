@@ -2,7 +2,7 @@
 <?php include_once("header.php"); ?>
 
 
-    <div class="main_wrapper md:flex">
+    <div class="main_wrapper">
         <div class="side__bar px-6 py-10 w-[20%] bg-[#86c540] h-screen">
             <div class="logo mb-5">
                 <a href="#" class="text-white text-xl font-bold">Expense Manger</a>
